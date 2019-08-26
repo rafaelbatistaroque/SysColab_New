@@ -36,7 +36,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Arquivo.cs" />
+    <Compile Include="Entities\ContaBancaria.cs" />
+    <Compile Include="Entities\Contrato.cs" />
+    <Compile Include="Entities\Empresa.cs" />
+    <Compile Include="Entities\Funcionario.cs" />
+    <Compile Include="Entities\Salario.cs" />
+    <Compile Include="Enums\AlteracaoSalarialMotivo.cs" />
+    <Compile Include="Enums\EEstadosBrasileirosSigla.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="ValueObjects\CPF.cs" />
+    <Compile Include="ValueObjects\CTPS.cs" />
+    <Compile Include="ValueObjects\Email.cs" />
+    <Compile Include="ValueObjects\Nome.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

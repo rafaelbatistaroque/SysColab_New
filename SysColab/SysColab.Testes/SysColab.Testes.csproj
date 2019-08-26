@@ -47,9 +47,10 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="Repositorio\DAOTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -63,10 +64,6 @@
     <ProjectReference Include="..\SysColab.Repositorios\SysColab.Repositorios.csproj">
       <Project>{c1f52cc0-65f4-4329-9d37-f258c15e85d6}</Project>
       <Name>SysColab.Repositorios</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SysColab.UI\SysColab.UI.csproj">
-      <Project>{e9f7b6ac-26f9-4f3e-a82a-a8e6c538127b}</Project>
-      <Name>SysColab.UI</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

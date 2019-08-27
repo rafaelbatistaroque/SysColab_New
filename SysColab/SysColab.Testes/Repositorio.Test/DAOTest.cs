@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Data.Common;
 
-namespace SysColab.Repositorios.DAO
+namespace SysColab.Repositorios
 {
     [TestClass]
     public class DAOTest

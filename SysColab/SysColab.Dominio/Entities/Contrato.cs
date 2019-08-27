@@ -22,7 +22,7 @@ namespace SysColab.Dominio.Entities
         public void CriarContrato()
         {
             Ativo = true;
-            DataDeSaida = DateTime.Now;
+            DataDeAdmissao = DateTime.Now;
         }
     }
 

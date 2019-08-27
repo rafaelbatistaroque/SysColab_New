@@ -2,7 +2,7 @@
 using System.Configuration;
 using System.Data.Common;
 
-namespace SysColab.Repositorios.DAO
+namespace SysColab.Repositorios
 {
     public class DAO
     {

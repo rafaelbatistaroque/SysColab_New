@@ -39,6 +39,8 @@
   <ItemGroup>
     <Compile Include="DAO\DAO.cs" />
     <Compile Include="DAO\Interfaces\IConexao.cs" />
+    <Compile Include="Funcionario.Repositorio\FuncionarioRepositorios.cs" />
+    <Compile Include="Funcionario.Repositorio\Interfaces\IFuncionarioRepository.cs" />
     <Compile Include="Program.cs" />
   </ItemGroup>
   <ItemGroup>

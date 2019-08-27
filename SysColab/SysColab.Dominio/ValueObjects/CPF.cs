@@ -1,17 +1,22 @@
 ﻿using System;
 
-namespace sysColab.Domain.ValueObjects
+namespace SysColab.Dominio.ValueObjects
 {
     public class CPF
     {
         public string NumeroCPF { get; }
         public CPF(string numeroCPF)
         {
-            if (string.IsNullOrEmpty(numeroCPF))
+            //FAZER: Implementar outras validações de cpf.
+            NumeroCPF = ValidarCPF(numeroCPF);
+        }
+        string ValidarCPF(string cpf)
+        {
+            if (string.IsNullOrWhiteSpace(cpf))
                 throw new ApplicationException("O campo CPF não pode estar vazio");
-            else if (numeroCPF.Length < 11 || numeroCPF.Length > 11)
+            else if (cpf.Length != 11)
                 throw new ApplicationException("O CPF deve ter apenas 11 dígitos");
-            else NumeroCPF = numeroCPF;
+            else return cpf;
         }
         public override string ToString()
         {

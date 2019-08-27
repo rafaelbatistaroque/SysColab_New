@@ -1,9 +1,8 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using sysColab.Domain.Enums;
-using sysColab.Domain.ValueObjects;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using SysColab.Dominio.Enums;
+using System;
 
-namespace SysColab.Testes.Domínio.Test.ValueObjects
+namespace SysColab.Dominio.ValueObjects
 {
     [TestClass]
     public class CTPSTest
@@ -15,18 +14,17 @@ namespace SysColab.Testes.Domínio.Test.ValueObjects
             ctps = new CTPS("12", "123", "RJ");
         }
         [TestMethod]
-        public void DevePassarSeParamentro_NumeroDaCTPS_EhDoTipoInteiro()
+        public void DevePassarSe_NumeroDaCTPS_EhDoTipoInteiro()
         {
             Assert.IsTrue(char.IsDigit(ctps.Numero.ToString(), 0));
-            Assert.IsNotNull(ctps.Numero);
         }
         [TestMethod]
-        public void DevePassarSeParamentro_SerieDaCTPS_EhDoTipoInteiro()
+        public void DevePassar_SerieDaCTPS_EhDoTipoInteiro()
         {
             Assert.IsTrue(char.IsDigit(ctps.Serie.ToString(), 0));
         }
         [TestMethod]
-        public void DevePassarSeParamentro_UFDaCTPS_EhSiglaDeUFBasileira()
+        public void DevePassar_UFDaCTPS_EhSiglaDeUFBrasileira()
         {
             Assert.IsTrue(Enum.IsDefined(typeof(EEstadosBrasileirosSigla), ctps.Uf));
         }

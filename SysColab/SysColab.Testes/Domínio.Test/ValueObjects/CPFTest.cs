@@ -1,7 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using sysColab.Domain.ValueObjects;
 
-namespace SysColab.Testes.Domínio
+namespace SysColab.Dominio.ValueObjects
 {
     [TestClass]
     public class CPFTest
@@ -15,7 +14,7 @@ namespace SysColab.Testes.Domínio
         }
         [TestMethod]
         public void DevePassarSeCPFNaoEhNuloOuVazio()
-        { 
+        {
             Assert.IsNotNull(cpf.NumeroCPF);
         }
         [TestMethod]

@@ -1,11 +1,7 @@
-﻿using sysColab.Domain.Enums;
+﻿using SysColab.Dominio.Enums;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace sysColab.Domain.Entities
+namespace SysColab.Dominio.Entities
 {
     public class Salario
     {

@@ -1,11 +1,9 @@
-﻿using System;
-
-namespace sysColab.Domain.ValueObjects
+﻿namespace SysColab.Dominio.ValueObjects
 {
     public class Nome
     {
-        public string PrimeiroNome { get; private set; }
-        public string SobreNome { get; private set; }
+        public string PrimeiroNome { get; }
+        public string SobreNome { get; }
 
         public Nome(string primeiroNome, string sobreNome)
         {

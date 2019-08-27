@@ -1,33 +1,36 @@
-﻿using sysColab.Domain.Enums;
+﻿using SysColab.Dominio.Enums;
 using System;
 
-namespace sysColab.Domain.ValueObjects
+namespace SysColab.Dominio.ValueObjects
 {
     public class CTPS
     {
-        public int Numero { get; private set; }
-        public int Serie { get; private set; }
-        public string Uf { get; private set; }
+        public int Numero { get; }
+        public int Serie { get; }
+        public string Uf { get; }
         public CTPS(string numero, string serie, string uf)
         {
-            EEstadosBrasileirosSigla ctpsUf;
-            if (!int.TryParse(numero, out int ctpfNr))
+            Numero = ValidarNumeroCTPS(numero);
+            Serie = ValidarSerieCTPS(serie);
+            Uf = ValidarSiglaEstadoBrasileiro(uf).ToString();
+        }
+        public int ValidarNumeroCTPS(string num)
+        {
+            if (!int.TryParse(num, out int ctpsNr))
                 throw new ApplicationException("O campo CTPS Nr só aceita números");
-            else if (!int.TryParse(serie, out int ctpfSerie))
+            else return ctpsNr;
+        }
+        int ValidarSerieCTPS(string serie)
+        {
+            if (!int.TryParse(serie, out int ctpsSerie))
                 throw new ApplicationException("O campo CTPS Série só aceita números");
-            else if (string.IsNullOrWhiteSpace(uf) || char.IsDigit(uf, 0) || !VerificarSeEhEstadoBrasileiro(uf))
+            else return ctpsSerie;
+        }
+        EEstadosBrasileirosSigla ValidarSiglaEstadoBrasileiro(string uf)
+        {
+            if (string.IsNullOrWhiteSpace(uf) || char.IsDigit(uf, 0) || !Enum.TryParse(uf, true, out EEstadosBrasileirosSigla ctpsUf))
                 throw new ApplicationException("O campo CTPS UF só aceita siglas de Estados Brasileiros");
-            else
-            {
-                Numero = ctpfNr;
-                Serie = ctpfSerie;
-                Uf = ctpsUf.ToString();
-            }
-            bool VerificarSeEhEstadoBrasileiro(string estado)
-            {
-                bool convertidoParaEnum = Enum.TryParse(estado, true, out ctpsUf);
-                return convertidoParaEnum;
-            }
+            else return ctpsUf;
         }
     }
 }

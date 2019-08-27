@@ -1,9 +1,9 @@
-﻿using sysColab.Domain.ValueObjects;
+﻿using SysColab.Dominio.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace sysColab.Domain.Entities
+namespace SysColab.Dominio.Entities
 {
     public class Funcionario
     {
@@ -21,14 +21,16 @@ namespace sysColab.Domain.Entities
         public Nome Nome { get; private set; }
         public CPF CPF { get; private set; }
         public CTPS CTPS { get; private set; }
+        public PIS PIS { get; private set; }
         public DateTime DataNasc { get; private set; }
         public Email Email { get; private set; }
 
-        public Funcionario(Nome nome, CPF cCPF, CTPS cCTPS, DateTime dataNasc, Email email)
+        public Funcionario(Nome nome, CPF cCPF, CTPS cCTPS, PIS pis, DateTime dataNasc, Email email)
         {
             Nome = nome;
             CPF = cCPF;
             CTPS = cCTPS;
+            PIS = pis;
             DataNasc = dataNasc;
             Email = email;
         }

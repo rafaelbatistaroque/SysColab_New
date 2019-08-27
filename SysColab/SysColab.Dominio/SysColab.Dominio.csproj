@@ -49,6 +49,10 @@
     <Compile Include="ValueObjects\CTPS.cs" />
     <Compile Include="ValueObjects\Email.cs" />
     <Compile Include="ValueObjects\Nome.cs" />
+    <Compile Include="ValueObjects\PIS.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Runtime.Serialization" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

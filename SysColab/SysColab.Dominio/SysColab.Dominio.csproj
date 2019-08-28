@@ -36,23 +36,30 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Arquivo.cs" />
-    <Compile Include="Entities\ContaBancaria.cs" />
-    <Compile Include="Entities\Contrato.cs" />
-    <Compile Include="Entities\Empresa.cs" />
-    <Compile Include="Entities\Funcionario.cs" />
-    <Compile Include="Entities\Salario.cs" />
-    <Compile Include="Enums\AlteracaoSalarialMotivo.cs" />
-    <Compile Include="Enums\EEstadosBrasileirosSigla.cs" />
+    <Compile Include="PRESTADORES\Entities\Prestador.cs" />
+    <Compile Include="PRESTADORES\Entities\ServicoPrestado.cs" />
+    <Compile Include="PRESTADORES\Enums\EStatusFatura.cs" />
+    <Compile Include="PUBLICOS\ValueObjects\Telefone.cs" />
+    <Compile Include="RH\Entities\Arquivo.cs" />
+    <Compile Include="RH\Entities\ContaBancaria.cs" />
+    <Compile Include="RH\Entities\Contrato.cs" />
+    <Compile Include="RH\Entities\Empresa.cs" />
+    <Compile Include="RH\Entities\Funcionario.cs" />
+    <Compile Include="RH\Entities\Salario.cs" />
+    <Compile Include="RH\Enums\AlteracaoSalarialMotivo.cs" />
+    <Compile Include="RH\Enums\EEstadosBrasileirosSigla.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="ValueObjects\CPF.cs" />
-    <Compile Include="ValueObjects\CTPS.cs" />
-    <Compile Include="ValueObjects\Email.cs" />
-    <Compile Include="ValueObjects\Nome.cs" />
-    <Compile Include="ValueObjects\PIS.cs" />
+    <Compile Include="RH\ValueObjects\CPF.cs" />
+    <Compile Include="RH\ValueObjects\CTPS.cs" />
+    <Compile Include="PUBLICOS\ValueObjects\Email.cs" />
+    <Compile Include="RH\ValueObjects\Nome.cs" />
+    <Compile Include="RH\ValueObjects\PIS.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Runtime.Serialization" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="PRESTADORES\ValueObjects\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

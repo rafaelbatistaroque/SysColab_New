@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace SysColab.Dominio.ValueObjects
+namespace SysColab.Dominio.RH.ValueObjects
 {
     [TestClass]
     public class CPFTest

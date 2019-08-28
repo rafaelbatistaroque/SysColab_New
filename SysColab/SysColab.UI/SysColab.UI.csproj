@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E9F7B6AC-26F9-4F3E-A82A-A8E6C538127B}</ProjectGuid>
+    <ProjectGuid>{3F7B3478-FF16-48A4-A65D-15352C7ADB5B}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>SysColab.UI</RootNamespace>
     <AssemblyName>SysColab.UI</AssemblyName>
@@ -33,27 +33,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BouncyCastle.Crypto, Version=1.8.3.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
-      <HintPath>..\packages\BouncyCastle.1.8.3.1\lib\BouncyCastle.Crypto.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.Protobuf, Version=3.6.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
-      <HintPath>..\packages\Google.Protobuf.3.6.1\lib\net45\Google.Protobuf.dll</HintPath>
-    </Reference>
     <Reference Include="MaterialSkin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialSkin.0.2.1\lib\MaterialSkin.dll</HintPath>
     </Reference>
-    <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
-      <HintPath>..\packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Configuration" />
-    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing.Design" />
-    <Reference Include="System.Management" />
-    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -65,16 +49,43 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Home.Designer.cs">
+      <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PRESTADORES\Pages\PrestadorPage\PagePrestadores.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PRESTADORES\Pages\PrestadorPage\PagePrestadores.Designer.cs">
+      <DependentUpon>PagePrestadores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RH\Pages\FuncionarioPage\NovoFuncionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RH\Pages\FuncionarioPage\NovoFuncionario.designer.cs">
+      <DependentUpon>NovoFuncionario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RH\Pages\FuncionarioPage\PageFuncionarios.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RH\Pages\FuncionarioPage\PageFuncionarios.designer.cs">
+      <DependentUpon>PageFuncionarios.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PRESTADORES\Pages\PrestadorPage\PagePrestadores.resx">
+      <DependentUpon>PagePrestadores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RH\Pages\FuncionarioPage\NovoFuncionario.resx">
+      <DependentUpon>NovoFuncionario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RH\Pages\FuncionarioPage\PageFuncionarios.resx">
+      <DependentUpon>PageFuncionarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -100,6 +111,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SysColab.Dominio\SysColab.Dominio.csproj">
+      <Project>{7D4F411B-87DF-4E3A-8221-4F8906849F5A}</Project>
+      <Name>SysColab.Dominio</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SysColab.Repositorios\SysColab.Repositorios.csproj">
       <Project>{C1F52CC0-65F4-4329-9D37-F258C15E85D6}</Project>
       <Name>SysColab.Repositorios</Name>

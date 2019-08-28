@@ -1,8 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using SysColab.Dominio.Enums;
+using SysColab.Dominio.RH.Enums;
 using System;
 
-namespace SysColab.Dominio.ValueObjects
+namespace SysColab.Dominio.RH.ValueObjects
 {
     [TestClass]
     public class CTPSTest

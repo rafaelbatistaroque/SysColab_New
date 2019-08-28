@@ -37,10 +37,12 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAO\DAO.cs" />
-    <Compile Include="DAO\Interfaces\IConexao.cs" />
-    <Compile Include="Funcionario.Repositorio\FuncionarioRepositorios.cs" />
-    <Compile Include="Funcionario.Repositorio\Interfaces\IFuncionarioRepository.cs" />
+    <Compile Include="ConexaoDAO\DAO.cs" />
+    <Compile Include="ConexaoDAO\Interfaces\IConexao.cs" />
+    <Compile Include="PRESTADORES\PrestadorDAO\Interfaces\IPrestadorRepositorio.cs" />
+    <Compile Include="PRESTADORES\PrestadorDAO\PrestadorRepositorio.cs" />
+    <Compile Include="RH\FuncionarioDAO\FuncionarioRepositorio.cs" />
+    <Compile Include="RH\FuncionarioDAO\Interfaces\IFuncionarioRepositorio.cs" />
     <Compile Include="Program.cs" />
   </ItemGroup>
   <ItemGroup>

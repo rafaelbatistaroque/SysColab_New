@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SysColab.Dominio.PUBLICOS.ValueObjects
+namespace SysColab.Dominio.Compartilhados.ValueObjects
 {
     public class Telefone
     {

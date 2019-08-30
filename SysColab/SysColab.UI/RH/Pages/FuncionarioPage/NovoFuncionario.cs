@@ -1,11 +1,12 @@
 ﻿using MaterialSkin;
 using MaterialSkin.Controls;
-using SysColab.Dominio.PUBLICOS.ValueObjects;
+using SysColab.Dominio.Compartilhados.ValueObjects;
 using SysColab.Dominio.RH.Entities;
 using SysColab.Dominio.RH.ValueObjects;
 using SysColab.Repositorios.RH.FuncionarioDAO;
+using SysColab.Servicos.NotificacaoServico;
+using SysColab.Servicos.NotificacaoServico.Enums;
 using System;
-using System.Windows.Forms;
 
 namespace SysColab.UI.RH.Pages.FuncionarioPage
 {
@@ -43,7 +44,7 @@ namespace SysColab.UI.RH.Pages.FuncionarioPage
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                Notificacao.Instancia.Notificar(ex.Message, ETipoNotificacao.Erro);
             }
 
         }

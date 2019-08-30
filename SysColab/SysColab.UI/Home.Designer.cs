@@ -31,6 +31,7 @@
             this.BtnRH = new System.Windows.Forms.Button();
             this.BtnServicos = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.BtnTest = new System.Windows.Forms.Button();
             this.pagePrestadores = new SysColab.UI.PRESTADORES.Pages.PrestadorPage.PagePrestadores();
             this.pageFuncionarios = new SysColab.UI.RH.Pages.FuncionarioPage.PageFuncionarios();
             this.flowLayoutPanel1.SuspendLayout();
@@ -41,8 +42,8 @@
             this.BtnRH.BackColor = System.Drawing.Color.Transparent;
             this.BtnRH.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.BtnRH.FlatAppearance.BorderSize = 0;
-            this.BtnRH.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(136)))), ((int)(((byte)(229)))));
-            this.BtnRH.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.BtnRH.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.BtnRH.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(136)))), ((int)(((byte)(229)))));
             this.BtnRH.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnRH.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnRH.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -61,15 +62,15 @@
             this.BtnServicos.BackColor = System.Drawing.Color.Transparent;
             this.BtnServicos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.BtnServicos.FlatAppearance.BorderSize = 0;
-            this.BtnServicos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(136)))), ((int)(((byte)(229)))));
-            this.BtnServicos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.BtnServicos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.BtnServicos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(160)))), ((int)(((byte)(71)))));
             this.BtnServicos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnServicos.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnServicos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.BtnServicos.Location = new System.Drawing.Point(0, 50);
             this.BtnServicos.Margin = new System.Windows.Forms.Padding(0);
             this.BtnServicos.Name = "BtnServicos";
-            this.BtnServicos.Size = new System.Drawing.Size(130, 36);
+            this.BtnServicos.Size = new System.Drawing.Size(130, 50);
             this.BtnServicos.TabIndex = 1;
             this.BtnServicos.Text = "SERVIÇOS";
             this.BtnServicos.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
@@ -83,10 +84,31 @@
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
             this.flowLayoutPanel1.Controls.Add(this.BtnRH);
             this.flowLayoutPanel1.Controls.Add(this.BtnServicos);
+            this.flowLayoutPanel1.Controls.Add(this.BtnTest);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 24);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(130, 500);
             this.flowLayoutPanel1.TabIndex = 3;
+            // 
+            // BtnTest
+            // 
+            this.BtnTest.BackColor = System.Drawing.Color.Transparent;
+            this.BtnTest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BtnTest.FlatAppearance.BorderSize = 0;
+            this.BtnTest.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(136)))), ((int)(((byte)(229)))));
+            this.BtnTest.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.BtnTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnTest.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnTest.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnTest.Location = new System.Drawing.Point(0, 100);
+            this.BtnTest.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnTest.Name = "BtnTest";
+            this.BtnTest.Size = new System.Drawing.Size(130, 50);
+            this.BtnTest.TabIndex = 1;
+            this.BtnTest.Text = "TESTE";
+            this.BtnTest.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.BtnTest.UseVisualStyleBackColor = false;
+            this.BtnTest.Click += new System.EventHandler(this.BtnTest_Click);
             // 
             // pagePrestadores
             // 
@@ -132,6 +154,7 @@
         private System.Windows.Forms.Button BtnRH;
         private System.Windows.Forms.Button BtnServicos;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Button BtnTest;
     }
 }
 

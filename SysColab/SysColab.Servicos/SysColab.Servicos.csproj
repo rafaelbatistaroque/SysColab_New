@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7D4F411B-87DF-4E3A-8221-4F8906849F5A}</ProjectGuid>
+    <ProjectGuid>{0ED1C054-FE87-4CE3-8690-DE9F8FB19AC0}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>SysColab.Dominio</RootNamespace>
-    <AssemblyName>SysColab.Dominio</AssemblyName>
+    <RootNamespace>SysColab.Servicos</RootNamespace>
+    <AssemblyName>SysColab.Servicos</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -36,46 +36,25 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PRESTADORES\Entities\Prestador.cs" />
-    <Compile Include="PRESTADORES\Entities\ServicoPrestado.cs" />
-    <Compile Include="PRESTADORES\Enums\EStatusFatura.cs" />
-    <Compile Include="Compartilhados\ValueObjects\Telefone.cs" />
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
+    <Compile Include="NotificacaoServicos\Enums\ETipoNotificacao.cs" />
+    <Compile Include="NotificacaoServicos\Notificacao.cs" />
+    <Compile Include="NotificacaoServicos\NotificacaoForm.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RH\Entities\Arquivo.cs" />
-    <Compile Include="RH\Entities\ContaBancaria.cs" />
-    <Compile Include="RH\Entities\Contrato.cs" />
-    <Compile Include="RH\Entities\Empresa.cs" />
-    <Compile Include="RH\Entities\Funcionario.cs" />
-    <Compile Include="RH\Entities\Salario.cs" />
-    <Compile Include="RH\Enums\AlteracaoSalarialMotivo.cs" />
-    <Compile Include="RH\Enums\EEstadosBrasileirosSigla.cs" />
+    <Compile Include="NotificacaoServicos\NotificacaoForm.Designer.cs">
+      <DependentUpon>NotificacaoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
-    <Compile Include="RH\ValueObjects\CPF.cs" />
-    <Compile Include="RH\ValueObjects\CTPS.cs" />
-    <Compile Include="Compartilhados\ValueObjects\Email.cs" />
-    <Compile Include="RH\ValueObjects\Nome.cs" />
-    <Compile Include="RH\ValueObjects\PIS.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="NotificacaoServicos\NotificacaoForm.resx">
+      <DependentUpon>NotificacaoForm.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="PRESTADORES\ValueObjects\" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

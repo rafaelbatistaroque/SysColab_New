@@ -188,7 +188,7 @@
             this.btnNovo.TabIndex = 5;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = true;
-            this.btnNovo.Click += new System.EventHandler(this.BtnNovo_Click_1);
+            this.btnNovo.Click += new System.EventHandler(this.BtnNovo_Click);
             // 
             // BtnExcluir
             // 

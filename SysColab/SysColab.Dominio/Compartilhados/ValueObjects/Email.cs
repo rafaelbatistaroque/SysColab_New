@@ -1,4 +1,4 @@
-﻿namespace SysColab.Dominio.PUBLICOS.ValueObjects
+﻿namespace SysColab.Dominio.Compartilhados.ValueObjects
 {
     public class Email
     {

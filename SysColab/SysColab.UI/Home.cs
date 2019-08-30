@@ -1,14 +1,8 @@
 ﻿using MaterialSkin;
 using MaterialSkin.Controls;
+using SysColab.Servicos.NotificacaoServico;
+using SysColab.Servicos.NotificacaoServico.Enums;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace SysColab.UI
 {
@@ -50,6 +44,14 @@ namespace SysColab.UI
             Primary.Indigo700, Accent.Lime400,
             TextShade.WHITE
             );
+        }
+
+        private void BtnTest_Click(object sender, EventArgs e)
+        {
+            Notificacao.Instancia.Notificar("Teste notificação", ETipoNotificacao.Erro);
+            Notificacao.Instancia.Notificar("Teste notificação", ETipoNotificacao.Alerta);
+            Notificacao.Instancia.Notificar("Teste notificação", ETipoNotificacao.Sucesso);
+            Notificacao.Instancia.Notificar("Teste notificação", ETipoNotificacao.Info);
         }
     }
 }

@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using SysColab.Dominio.PUBLICOS.ValueObjects;
+using SysColab.Dominio.Compartilhados.ValueObjects;
 
 namespace SysColab.Dominio.RH.Entities
 {

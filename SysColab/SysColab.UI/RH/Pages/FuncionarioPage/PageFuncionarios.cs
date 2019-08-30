@@ -47,7 +47,7 @@ namespace SysColab.UI.RH.Pages.FuncionarioPage
             MessageBox.Show(e.ColumnIndex.ToString());
             CarregarListaFuncionarios();
         }
-        private void BtnNovo_Click_1(object sender, EventArgs e)
+        private void BtnNovo_Click(object sender, EventArgs e)
         {
             NovoFuncionario pageDashBoard = new NovoFuncionario();
             pageDashBoard.ShowDialog();

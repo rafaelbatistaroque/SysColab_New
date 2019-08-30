@@ -64,5 +64,11 @@ namespace SysColab.UI.PRESTADORES.Pages.PrestadorPage
             balaoDicaTxtPesquisar.SetToolTip(txtPesquisarPrestado, "Pesquisa as informações que estão na tabela de prestadores de serviço.");
         }
         #endregion
+
+        private void BtnNovo_Click(object sender, EventArgs e)
+        {
+            NovoPrestador novoPrestador = new NovoPrestador();
+            novoPrestador.ShowDialog();
+        }
     }
 }

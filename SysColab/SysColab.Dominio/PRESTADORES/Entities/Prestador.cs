@@ -1,4 +1,4 @@
-﻿using SysColab.Dominio.PUBLICOS.ValueObjects;
+﻿using SysColab.Dominio.Compartilhados.ValueObjects;
 using System.Collections.Generic;
 using System.Linq;
 

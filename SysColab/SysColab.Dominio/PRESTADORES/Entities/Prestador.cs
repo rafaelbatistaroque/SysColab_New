@@ -8,9 +8,11 @@ namespace SysColab.Dominio.PRESTADORES.Entities
     {
         private IList<Telefone> _numerosContatos;
         private IList<ServicoPrestado> _servicosPrestados;
-        public int Id { get; private set; }
-        public string Servico { get; private set; }
-        public string InfoAdicionaisPrestador { get; private set; }
+
+        public int Id { get;  set; }
+        public string Servico { get; set; }
+        public string InfoAdicionaisPrestador { get; set; }
+
         public IReadOnlyCollection<Telefone> NumerosContato => _numerosContatos.ToArray();
         public IReadOnlyCollection<ServicoPrestado> ServicosPrestado => _servicosPrestados.ToArray();
 

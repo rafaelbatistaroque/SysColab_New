@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SysColab.UI.Properties
+namespace SysColab.View.Properties
 {
 
 

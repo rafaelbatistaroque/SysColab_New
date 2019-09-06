@@ -27,7 +27,7 @@ namespace SysColab.Dominio.Compartilhados.Entities.NotificacaoServico
         private void Button1_Click(object sender, EventArgs e)
         {
             this.Close();
-            Notificacao.altura = 0;
+            Notificacao.TopNotificacao = 0;
         }
         private void TimerNotificacao_Tick(object sender, EventArgs e)
         {
@@ -38,7 +38,7 @@ namespace SysColab.Dominio.Compartilhados.Entities.NotificacaoServico
             else
             {
                 this.Close();
-                Notificacao.altura = 0;
+                Notificacao.TopNotificacao = 0;
             }
         }
     }

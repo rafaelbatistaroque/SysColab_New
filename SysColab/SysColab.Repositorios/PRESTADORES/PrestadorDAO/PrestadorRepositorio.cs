@@ -1,4 +1,5 @@
-﻿using SysColab.Dominio.PRESTADORES.Entities;
+﻿using MySql.Data.MySqlClient;
+using SysColab.Dominio.PRESTADORES.Entities;
 using SysColab.Repositorios.ConexaoDAO;
 using SysColab.Repositorios.PRESTADORES.PrestadorDAO.Interfaces;
 using System;
@@ -35,7 +36,9 @@ namespace SysColab.Repositorios.PRESTADORES.PrestadorDAO
 
         public void DeletarPrestador(int id)
         {
-            throw new NotImplementedException();
+            DbCommand comando = SqlComando("DELETE FROM tblprestadores_servicos WHERE id_prestadores_servico = @id");
+            comando.Parameters.Add(new MySqlParameter("@id", id));
+            comando.ExecuteNonQuery();
         }
 
         public Prestador ObterPrestador(int id)
@@ -55,6 +58,15 @@ namespace SysColab.Repositorios.PRESTADORES.PrestadorDAO
             DAO.FecharConexao(_conexao);
 
             return dadosPrestador;
+        }
+        public DbDataReader ObterTodosPrestadoresReader()
+        {
+            DbCommand comando = SqlComando("SELECT * FROM tblprestadores_servicos");
+            DbDataReader reader = DAO.LerDadosRecebidosDoBanco(comando);
+
+            //DAO.FecharConexao(_conexao);
+
+            return reader;
         }
     }
 }

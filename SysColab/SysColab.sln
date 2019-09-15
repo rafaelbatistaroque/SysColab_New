@@ -21,7 +21,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Servi√ßos", "4 - Servi√
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SysColab.Servicos", "SysColab.Servicos\SysColab.Servicos.csproj", "{0ED1C054-FE87-4CE3-8690-DE9F8FB19AC0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SysColab.UI", "SysColab.View\SysColab.UI.csproj", "{168F0ADA-E666-44EA-A408-FC96F72CA72B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SysColab.UI", "SysColab.UI\SysColab.UI.csproj", "{168F0ADA-E666-44EA-A408-FC96F72CA72B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -14,7 +14,7 @@ namespace SysColab.Repositorios.PRESTADORES.PrestadorDAO
 {
     public class PrestadorRepositorio : IPrestadorRepositorio
     {
-        private DbConnection _conexao;
+        DbConnection _conexao;
         DbCommand SqlComando(string sqlComando)
         {
             _conexao = DAO.ObterConexao();
@@ -46,27 +46,26 @@ namespace SysColab.Repositorios.PRESTADORES.PrestadorDAO
             throw new NotImplementedException();
         }
 
-        public DataTable ObterTodosPrestadores()
+        public List<Prestador> ObterTodosPrestadores()
         {
             DbCommand comando = SqlComando("SELECT * FROM tblprestadores_servicos");
             DbDataReader reader = DAO.LerDadosRecebidosDoBanco(comando);
 
-            DataTable dadosPrestador = new DataTable();
-            dadosPrestador.Load(reader);
-
+            List<Prestador> prestadores = new List<Prestador>();
+            while (reader.Read())
+            {
+                var prestador = new Prestador()
+                {
+                    IdPrestador = Convert.ToInt32(reader["id_prestadores_servico"]),
+                    Servico = reader["servico"].ToString(),
+                    InfoAdicionaisPrestador = reader["infoAdicionais"].ToString(),
+                };
+                prestadores.Add(prestador);
+            }
             reader.Close();
             DAO.FecharConexao(_conexao);
 
-            return dadosPrestador;
-        }
-        public DbDataReader ObterTodosPrestadoresReader()
-        {
-            DbCommand comando = SqlComando("SELECT * FROM tblprestadores_servicos");
-            DbDataReader reader = DAO.LerDadosRecebidosDoBanco(comando);
-
-            //DAO.FecharConexao(_conexao);
-
-            return reader;
+            return prestadores;
         }
     }
 }

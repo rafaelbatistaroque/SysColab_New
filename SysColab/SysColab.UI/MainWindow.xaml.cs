@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SysColab.View
+namespace SysColab.UI
 {
     /// <summary>
     /// Interação lógica para MainWindow.xam
@@ -41,6 +41,24 @@ namespace SysColab.View
             if (WindowState == WindowState.Normal)
                 WindowState = WindowState.Maximized;
             else WindowState = WindowState.Normal;
+        }
+
+        private void AbrirPages(object sender, EventArgs e)
+        {
+            Button botao = (Button)sender;
+            if(GridConteudo != null) GridConteudo.Children.Clear();
+
+            switch (botao.Name)
+            {
+                case "btnPrestador":
+                    GridConteudo.Children.Add(UCPrestadores.Instancia);
+                    break;
+                case "btnHome":
+                    GridConteudo.Children.Add(UCDashBoard.Instancia);
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

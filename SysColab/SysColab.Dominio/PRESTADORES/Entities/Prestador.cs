@@ -1,20 +1,27 @@
-﻿using SysColab.Dominio.Compartilhados.ValueObjects;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System;
 
 namespace SysColab.Dominio.PRESTADORES.Entities
 {
     public class Prestador
     {
-        private IList<ServicoPrestado> _servicosPrestados;
+        public int IdPrestador { get; }
+        public string Servico { get; }
+        public string InfoAdicionaisPrestador { get; }
 
-        public int IdPrestador { get;  set; }
-        public string Servico { get; set; }
-        public string InfoAdicionaisPrestador { get; set; }
-
-        public IReadOnlyCollection<ServicoPrestado> ServicosPrestado => _servicosPrestados.ToArray();
-
-
-
+        public Prestador(string servico, string infoAdicionaisPrestador)
+        {
+            Servico = ValidarServico(servico);
+            InfoAdicionaisPrestador = infoAdicionaisPrestador;
+        }
+        public Prestador(int idPrestador, string servico, string infoAdicionaisPrestador) : this(servico, infoAdicionaisPrestador)
+        {
+            IdPrestador = idPrestador;
+        }
+        string ValidarServico(string sv)
+        {
+            if (string.IsNullOrWhiteSpace(sv) || char.IsDigit(sv, 0))
+                throw new ApplicationException("O campo de serviço não é válido.");
+            return sv;
+        }
     }
 }

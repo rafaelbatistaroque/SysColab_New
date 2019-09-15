@@ -6,6 +6,7 @@ using SysColab.Dominio.Compartilhados.ValueObjects;
 
 namespace SysColab.Dominio.RH.Entities
 {
+    //FAZER: Verificar necessidade de lista aqui
     public class Funcionario
     {
         private IList<Salario> _salarios;
@@ -23,10 +24,10 @@ namespace SysColab.Dominio.RH.Entities
         public CPF CPF { get; private set; }
         public CTPS CTPS { get; private set; }
         public PIS PIS { get; private set; }
-        public DateTime DataNasc { get; private set; }
+        public Data DataNasc { get; private set; }
         public Email Email { get; private set; }
 
-        public Funcionario(Nome nome, CPF cCPF, CTPS cCTPS, PIS pis, DateTime dataNasc, Email email)
+        public Funcionario(Nome nome, CPF cCPF, CTPS cCTPS, PIS pis, Data dataNasc, Email email)
         {
             Nome = nome;
             CPF = cCPF;
@@ -34,14 +35,6 @@ namespace SysColab.Dominio.RH.Entities
             PIS = pis;
             DataNasc = dataNasc;
             Email = email;
-        }
-        public void AdicionarNovoContratoDeTrabalho(Contrato contrato)
-        {
-            //Se já tiver um contrato ativo, deve estar com status falso;
-            foreach (Contrato contratoAntigo in Contratos)
-                contratoAntigo.RescindirContrato();
-
-            _contratos.Add(contrato);
         }
     }
 }

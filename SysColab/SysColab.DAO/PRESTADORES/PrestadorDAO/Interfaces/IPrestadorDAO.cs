@@ -1,11 +1,11 @@
 ﻿using SysColab.Dominio.PRESTADORES.Entities;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
-namespace SysColab.Repositorios.PRESTADORES.PrestadorDAO.Interfaces
+namespace SysColab.DAO.PRESTADORES.PrestadorDAO.Interfaces
 {
-    interface IPrestadorRepositorio
+    interface IPrestadorDAO
     {
-        List<Prestador> ObterTodosPrestadores();
+        ObservableCollection<Prestador> ObterTodosPrestadores();
         Prestador ObterPrestador(int id);
         void CriarPrestador(Prestador prestador);
         void AtualizarPrestador(Prestador prestador);

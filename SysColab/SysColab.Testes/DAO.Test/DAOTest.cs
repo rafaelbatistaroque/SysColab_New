@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Data.Common;
 
-namespace SysColab.Repositorios.ConexaoDAO
+namespace SysColab.DAO.ConexaoDAO
 {
     [TestClass]
     public class DAOTest
@@ -11,7 +11,7 @@ namespace SysColab.Repositorios.ConexaoDAO
         [TestInitialize]
         public void Iniciar()
         {
-            conexao = DAO.ObterConexao();
+            conexao = DAOConexao.ObterConexao();
         }
         [TestMethod]
         public void DevePasssarSeConexaoAberta()
@@ -21,7 +21,7 @@ namespace SysColab.Repositorios.ConexaoDAO
         [TestMethod]
         public void DevePassarSeConexaoFechada()
         {
-            DAO.FecharConexao(conexao);
+            DAOConexao.FecharConexao();
             Assert.AreEqual("Closed", conexao.State.ToString());
         }
     }

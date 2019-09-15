@@ -56,5 +56,15 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SysColab.DAO\SysColab.DAO.csproj">
+      <Project>{C1F52CC0-65F4-4329-9D37-F258C15E85D6}</Project>
+      <Name>SysColab.DAO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SysColab.Dominio\SysColab.Dominio.csproj">
+      <Project>{7D4F411B-87DF-4E3A-8221-4F8906849F5A}</Project>
+      <Name>SysColab.Dominio</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

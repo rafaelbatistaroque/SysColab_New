@@ -2,8 +2,7 @@
 {
     public enum EStatusFaturaPrestadorServico
     {
-        Pago,
-        Aberta,
-        Negociação
+        Paga,
+        Aberta
     }
 }

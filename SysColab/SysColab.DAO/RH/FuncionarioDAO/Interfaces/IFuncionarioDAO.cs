@@ -2,9 +2,9 @@
 using SysColab.Dominio.RH.ValueObjects;
 using System.Data;
 
-namespace SysColab.Repositorios.RH.FuncionarioDAO.Interfaces
+namespace SysColab.DAO.RH.FuncionarioDAO.Interfaces
 {
-    interface IFuncionarioRepositorio
+    interface IFuncionarioDAO
     {
         DataTable ObterTodosFuncionarios();
         Funcionario ObterFuncionario(string cpf);

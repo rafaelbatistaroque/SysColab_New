@@ -1,18 +1,7 @@
-﻿using SysColab.Repositorios.PRESTADORES.PrestadorDAO;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace SysColab.UI
 {
@@ -46,15 +35,19 @@ namespace SysColab.UI
         private void AbrirPages(object sender, EventArgs e)
         {
             Button botao = (Button)sender;
-            if(GridConteudo != null) GridConteudo.Children.Clear();
+            if (GridConteudo != null) GridConteudo.Children.Clear();
 
             switch (botao.Name)
             {
                 case "btnPrestador":
-                    GridConteudo.Children.Add(UCPrestadores.Instancia);
+                    GridConteudo.Children.Add(new UCPrestadores());
+                    TextoDoTituloMenu.Text = "Prestadores de Serviços";
                     break;
                 case "btnHome":
                     GridConteudo.Children.Add(UCDashBoard.Instancia);
+                    TextoDoTituloMenu.Text = "Home";
+                    break;
+                case "btnRH":
                     break;
                 default:
                     break;

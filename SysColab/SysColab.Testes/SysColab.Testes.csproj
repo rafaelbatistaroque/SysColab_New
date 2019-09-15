@@ -50,22 +50,27 @@
     <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domínio.Test\Prestadores\PrestadorTest.cs" />
+    <Compile Include="Domínio.Test\Prestadores\ServicoPrestadoTest.cs" />
     <Compile Include="Domínio.Test\ValueObjects\CPFTest.cs" />
     <Compile Include="Domínio.Test\ValueObjects\CTPSTest.cs" />
-    <Compile Include="Repositorio.Test\DAOTest.cs" />
+    <Compile Include="DAO.Test\DAOTest.cs" />
+    <Compile Include="Domínio.Test\ValueObjects\DataTest.cs" />
+    <Compile Include="Domínio.Test\ValueObjects\PISTest.cs" />
+    <Compile Include="Domínio.Test\ValueObjects\NomeTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SysColab.DAO\SysColab.DAO.csproj">
+      <Project>{c1f52cc0-65f4-4329-9d37-f258c15e85d6}</Project>
+      <Name>SysColab.DAO</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SysColab.Dominio\SysColab.Dominio.csproj">
       <Project>{7d4f411b-87df-4e3a-8221-4f8906849f5a}</Project>
       <Name>SysColab.Dominio</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SysColab.Repositorios\SysColab.Repositorios.csproj">
-      <Project>{c1f52cc0-65f4-4329-9d37-f258c15e85d6}</Project>
-      <Name>SysColab.Repositorios</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

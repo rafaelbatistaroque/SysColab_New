@@ -1,6 +1,12 @@
-﻿using SysColab.Dominio.Compartilhados.Entities.NotificacaoServico;
+﻿using SysColab.DAO.PRESTADORES.PrestadorDAO;
+using SysColab.Dominio.Compartilhados.Entities.NotificacaoServico;
+using SysColab.Dominio.PRESTADORES.Entities;
 using SysColab.Servicos.NotificacaoServico.Enums;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace SysColab.Servicos.NotificacaoServico

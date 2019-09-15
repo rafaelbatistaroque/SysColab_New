@@ -3,9 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28803.452
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SysColab.Repositorios", "SysColab.Repositorios\SysColab.Repositorios.csproj", "{C1F52CC0-65F4-4329-9D37-F258C15E85D6}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Repositórios", "2 - Repositórios", "{CDE03578-EE52-44B5-88D3-B5493A7C77C1}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - DAO", "2 - DAO", "{CDE03578-EE52-44B5-88D3-B5493A7C77C1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Domínio", "1 - Domínio", "{D1EAA813-A2A0-41BD-8053-A12C7F9BFE06}"
 EndProject
@@ -23,16 +21,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SysColab.Servicos", "SysCol
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SysColab.UI", "SysColab.UI\SysColab.UI.csproj", "{168F0ADA-E666-44EA-A408-FC96F72CA72B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SysColab.DAO", "SysColab.DAO\SysColab.DAO.csproj", "{C1F52CC0-65F4-4329-9D37-F258C15E85D6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C1F52CC0-65F4-4329-9D37-F258C15E85D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C1F52CC0-65F4-4329-9D37-F258C15E85D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C1F52CC0-65F4-4329-9D37-F258C15E85D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C1F52CC0-65F4-4329-9D37-F258C15E85D6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7D4F411B-87DF-4E3A-8221-4F8906849F5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7D4F411B-87DF-4E3A-8221-4F8906849F5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D4F411B-87DF-4E3A-8221-4F8906849F5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -49,16 +45,20 @@ Global
 		{168F0ADA-E666-44EA-A408-FC96F72CA72B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{168F0ADA-E666-44EA-A408-FC96F72CA72B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{168F0ADA-E666-44EA-A408-FC96F72CA72B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1F52CC0-65F4-4329-9D37-F258C15E85D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1F52CC0-65F4-4329-9D37-F258C15E85D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1F52CC0-65F4-4329-9D37-F258C15E85D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1F52CC0-65F4-4329-9D37-F258C15E85D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{C1F52CC0-65F4-4329-9D37-F258C15E85D6} = {CDE03578-EE52-44B5-88D3-B5493A7C77C1}
 		{7D4F411B-87DF-4E3A-8221-4F8906849F5A} = {D1EAA813-A2A0-41BD-8053-A12C7F9BFE06}
 		{3BE21B64-8989-4D0D-B73C-C47431FC1263} = {97A49EE9-3E10-4E65-82E3-7890D2E9FEE5}
 		{0ED1C054-FE87-4CE3-8690-DE9F8FB19AC0} = {8187BE0A-BFAD-4219-A88C-FDF513BFF4C7}
 		{168F0ADA-E666-44EA-A408-FC96F72CA72B} = {E388266A-25FE-4A4A-B3DF-6F5934696682}
+		{C1F52CC0-65F4-4329-9D37-F258C15E85D6} = {CDE03578-EE52-44B5-88D3-B5493A7C77C1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A8E1841E-F9D2-4009-A9EF-5B06C3DC518D}

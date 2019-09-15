@@ -9,7 +9,7 @@
         Title="MainWindow" Height="550" Width="840" ResizeMode="NoResize"
             WindowStyle="None" WindowStartupLocation="CenterScreen"
             Background="LightGray" MouseLeftButtonDown="MoverForm"
-            MouseDoubleClick="MaximizarOrMinimizar" BorderBrush="DarkGray" BorderThickness="1">
+            BorderBrush="DarkGray" BorderThickness="1">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -19,9 +19,12 @@
 
         <!--Menu-->
         <materialDesign:ColorZone
-            Mode="PrimaryDark" Grid.Row="0" Padding="10" CornerRadius="5" Margin="6 6 6 0"
+            Mode="PrimaryDark" Grid.Row="0" Padding="10" CornerRadius="5" Margin="6 6 6 0" MouseDoubleClick="MaximizarOrMinimizar"
             materialDesign:ShadowAssist.ShadowDepth="Depth3" VerticalAlignment="Stretch" Panel.ZIndex="0">
             
+            <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                <TextBlock x:Name="TextoDoTituloMenu" Text="Home" Style="{StaticResource MaterialDesignHeadlineTextBlock}" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                
             <StackPanel x:Name="menuSuperior" Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Stretch"  HorizontalAlignment="Right">
 
                 <Button x:Name="btnPrestador" Style="{StaticResource MaterialDesignToolForegroundButton}" Foreground="White" Margin="0 0 30 0" Click="AbrirPages">
@@ -42,13 +45,12 @@
                     </StackPanel>
                 </materialDesign:PopupBox>
             </StackPanel>
+            </Grid>
         </materialDesign:ColorZone>
-
 
         <Grid x:Name="GridConteudo" Panel.ZIndex="-1" Grid.Row="1">
             <local:UCDashBoard/>
         </Grid>
-
     </Grid>
 
 </Window>

@@ -1,21 +1,19 @@
 ﻿using MySql.Data.MySqlClient;
+using SysColab.DAO.ConexaoDAO;
+using SysColab.DAO.RH.FuncionarioDAO.Interfaces;
 using SysColab.Dominio.RH.Entities;
-using SysColab.Dominio.RH.ValueObjects;
-using SysColab.Repositorios.ConexaoDAO;
-using SysColab.Repositorios.RH.FuncionarioDAO.Interfaces;
 using System;
 using System.Data;
 using System.Data.Common;
 
-namespace SysColab.Repositorios.RH.FuncionarioDAO
+namespace SysColab.DAO.RH.FuncionarioDAO
 {
-    public class FuncionarioRepositorio : IFuncionarioRepositorio
+    public class FuncionarioDAO : IFuncionarioDAO
     {
-        private DbConnection _conexao;
         DbCommand SqlComando(string sqlComando)
         {
-            _conexao = DAO.ObterConexao();
-            DbCommand comando = DAO.ObterComando(_conexao);
+            DbConnection _conexao = DAOConexao.ObterConexao();
+            DbCommand comando = DAOConexao.ObterComando(_conexao);
             comando.CommandType = CommandType.Text;
             comando.CommandText = sqlComando;
 
@@ -24,13 +22,13 @@ namespace SysColab.Repositorios.RH.FuncionarioDAO
         public DataTable ObterTodosFuncionarios()
         {
             DbCommand comando = SqlComando("SELECT * FROM tblFuncionarios");
-            DbDataReader reader = DAO.LerDadosRecebidosDoBanco(comando);
+            DbDataReader reader = DAOConexao.LerDadosRecebidosDoBanco(comando);
 
             DataTable dadosFuncionarios = new DataTable();
             dadosFuncionarios.Load(reader);
 
             reader.Close();
-            DAO.FecharConexao(_conexao);
+            DAOConexao.FecharConexao();
 
             return dadosFuncionarios;
         }

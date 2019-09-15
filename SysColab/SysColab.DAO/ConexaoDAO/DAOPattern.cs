@@ -1,10 +1,12 @@
 ﻿using MySql.Data.MySqlClient;
+using System.Data;
 using System.Data.Common;
 
-namespace SysColab.Repositorios.ConexaoDAO
+namespace SysColab.DAO.ConexaoDAO
 {
-    public class DAO
+    public class DAOConexao
     {
+        private static DbConnection _conexao;
         public static DbConnection ObterConexao()
         {
             string servidor = "localHost";
@@ -13,8 +15,8 @@ namespace SysColab.Repositorios.ConexaoDAO
             string senha = "9gregokirios";
 
             string strconexao = $"Server={servidor};Database={bancoDeDados};Uid={usuario};Pwd={senha};";
-            DbConnection conexao = new MySqlConnection(strconexao);
-            return AbrirConexao(conexao);
+            _conexao = new MySqlConnection(strconexao);
+            return AbrirConexao();
         }
         public static DbCommand ObterComando(DbConnection conexao)
         {
@@ -25,21 +27,16 @@ namespace SysColab.Repositorios.ConexaoDAO
         {
             return comando.ExecuteReader();
         }
-        static DbConnection AbrirConexao(DbConnection conexao)
+        static DbConnection AbrirConexao()
         {
-            switch (conexao.State.ToString())
-            {
-                case "Closed":
-                    conexao.Open();
-                    return conexao;
-                default:
-                    return conexao;
-            }
+            if (_conexao.State == ConnectionState.Closed)
+                _conexao.Open();
+            return _conexao;
         }
-        public static void FecharConexao(DbConnection conexao)
+        public static void FecharConexao()
         {
-            if (conexao.State.ToString() == "Open")
-                conexao.Close();
+            if (_conexao.State == ConnectionState.Open)
+                _conexao.Close();
         }
     }
 }

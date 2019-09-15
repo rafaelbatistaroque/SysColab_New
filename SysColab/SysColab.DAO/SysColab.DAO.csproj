@@ -6,12 +6,27 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{C1F52CC0-65F4-4329-9D37-F258C15E85D6}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>SysColab.Repositorios</RootNamespace>
-    <AssemblyName>SysColab.Repositorios</AssemblyName>
+    <RootNamespace>SysColab.DAO</RootNamespace>
+    <AssemblyName>SysColab.DAO</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -37,12 +52,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConexaoDAO\DAO.cs" />
-    <Compile Include="ConexaoDAO\Interfaces\IConexao.cs" />
-    <Compile Include="PRESTADORES\PrestadorDAO\Interfaces\IPrestadorRepositorio.cs" />
-    <Compile Include="PRESTADORES\PrestadorDAO\PrestadorRepositorio.cs" />
-    <Compile Include="RH\FuncionarioDAO\FuncionarioRepositorio.cs" />
-    <Compile Include="RH\FuncionarioDAO\Interfaces\IFuncionarioRepositorio.cs" />
+    <Compile Include="ConexaoDAO\DAOPattern.cs" />
+    <Compile Include="PRESTADORES\PrestadorDAO\Interfaces\IPrestadorDAO.cs" />
+    <Compile Include="PRESTADORES\PrestadorDAO\Interfaces\IServicoPrestadoDAO.cs" />
+    <Compile Include="PRESTADORES\PrestadorDAO\ServicoPrestadoDAO.cs" />
+    <Compile Include="PRESTADORES\PrestadorDAO\PrestadorDAO.cs" />
+    <Compile Include="RH\FuncionarioDAO\FuncionarioDAO.cs" />
+    <Compile Include="RH\FuncionarioDAO\Interfaces\IFuncionarioDAO.cs" />
     <Compile Include="Program.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -76,6 +92,18 @@
       <Project>{7d4f411b-87df-4e3a-8221-4f8906849f5a}</Project>
       <Name>SysColab.Dominio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 e x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

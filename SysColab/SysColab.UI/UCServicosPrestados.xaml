@@ -1,0 +1,115 @@
+﻿<UserControl x:Class="SysColab.UI.UCServicosPrestados"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:uc="clr-namespace:SysColab.UI"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d"
+             d:DesignHeight="480" d:DesignWidth="840" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+             Background="LightGray" Loaded="UserControl_Loaded">
+
+    <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect FadeIn, Duration=0:0:0.7}">
+        <Grid>
+            <Grid x:Name="GridCabecalho" Margin="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!--Cabeçalho-->
+                <TextBlock Grid.Row="0" Text="Faturas" Style="{StaticResource MaterialDesignHeadlineTextBlock}"
+                           Foreground="Gray"  VerticalAlignment="Center" Margin="10 0 0 0"/>
+
+                <StackPanel Grid.Column="1" Orientation="Horizontal">
+                    <Button VerticalAlignment="Center" Margin="10" Click="CarregarPrestador"
+                        Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}">
+                        <materialDesign:PackIcon Kind="ArrowLeft"/>
+                    </Button>
+                    <Button VerticalAlignment="Center" Margin="10"
+                        Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}">
+                        <materialDesign:PackIcon Kind="Add"/>
+                    </Button>
+                </StackPanel>
+
+
+                <ItemsControl x:Name="listaFaturas" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
+
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <materialDesign:Card x:Name="cardFatura" VerticalAlignment="Stretch" Height="70" Background="White" Margin="10">
+                                <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Stretch" x:Name="StackLista">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition />
+                                                <RowDefinition Height="*"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition />
+                                            </Grid.ColumnDefinitions>
+
+
+                                            <TextBlock  Margin="3 0" HorizontalAlignment="Center" Foreground="Gray" VerticalAlignment="Center" Text="Data Chegada" Grid.Column="0" Grid.Row="0"/>
+                                            <TextBlock Margin="30 10" VerticalAlignment="Center" Text="{Binding DataChegada}" HorizontalAlignment="Center"
+                                                       Style="{StaticResource MaterialDesignBody2TextBlock}" Grid.Row="1" Grid.Column="0"/>
+
+                                            <TextBlock Margin="3 0" HorizontalAlignment="Center" Foreground="Gray" VerticalAlignment="Center" Text="Data Vencimento" Grid.Column="1" Grid.Row="0"/>
+                                            <TextBlock Margin="30 10" VerticalAlignment="Center" Text="{Binding DataVencimento}" HorizontalAlignment="Center"
+                                                       Style="{StaticResource MaterialDesignBody2TextBlock}" Grid.Row="1" Grid.Column="1"/>
+
+                                            <TextBlock Margin="3 0" HorizontalAlignment="Center" Foreground="Gray" VerticalAlignment="Center" Text="Mês de Refencia" Grid.Column="2" Grid.Row="0"/>
+                                            <TextBlock Margin="30 10" VerticalAlignment="Center" Text="{Binding MesReferencia}" HorizontalAlignment="Center"
+                                                       Style="{StaticResource MaterialDesignBody2TextBlock}" Grid.Row="1" Grid.Column="2"/>
+
+                                            <TextBlock Margin="3 0" HorizontalAlignment="Center" Foreground="Gray" VerticalAlignment="Center" Text="Info" Grid.Column="3" Grid.Row="0"/>
+                                            <TextBlock Margin="30 10" VerticalAlignment="Center" Text="{Binding InfoAdicionaisFatura}" HorizontalAlignment="Left"
+                                                       FontWeight="Light" FontStyle="Italic" Grid.Row="1" Grid.Column="3"  TextWrapping="Wrap" />
+                                        </Grid>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+
+                                        <ToggleButton Tag="{Binding IdFatura}" x:Name="btnEfetivar"  Width="40" Height="40" ToolTip="Efetivar" Margin="10"
+                                                      Background="GhostWhite" Style="{StaticResource MaterialDesignActionToggleButton}" Click="AlterarStatusFaturaDaPrestacaoDeServico">
+                                            <ToggleButton.Content>
+                                                <materialDesign:PackIcon Kind="CloseCircleOutline" Width="30" Height="30" Foreground="#E36363"/>
+                                            </ToggleButton.Content>
+                                            <materialDesign:ToggleButtonAssist.OnContent>
+                                                <materialDesign:PackIcon Kind="CheckboxMarkedCircleOutline" Width="30" Height="30" Foreground="#40C746"/>
+                                            </materialDesign:ToggleButtonAssist.OnContent>
+                                        </ToggleButton>
+
+                                        <Button VerticalAlignment="Center" Background="GhostWhite" Margin="10" Width="40" Height="40"
+                                                Style="{StaticResource MaterialDesignIconForegroundButton}">
+                                            <materialDesign:PackIcon Kind="Edit" Foreground="#ADADAD"/>
+                                        </Button>
+                                        <Button Tag="{Binding IdFatura}" Background="GhostWhite" Margin="10" Width="40" Height="40"
+                                                Style="{StaticResource MaterialDesignIconForegroundButton}" Click="RemoverFatura">
+                                            <materialDesign:PackIcon Kind="Delete" Foreground="#ADADAD"/>
+                                        </Button>
+
+                                    </StackPanel>
+                                </Grid>
+                            </materialDesign:Card>
+                            
+                            <DataTemplate.Triggers>
+                                <DataTrigger Binding="{Binding Status}" Value="Paga">
+                                    <Setter TargetName="btnEfetivar" Property="IsChecked" Value="True" />
+                                </DataTrigger>
+                            </DataTemplate.Triggers>
+                            
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </Grid>
+        </Grid>
+    </materialDesign:TransitioningContent>
+</UserControl>

@@ -1,43 +1,42 @@
-﻿using SysColab.Repositorios.PRESTADORES.PrestadorDAO;
+﻿using SysColab.DAO.PRESTADORES.PrestadorDAO;
+using SysColab.Dominio.PRESTADORES.Entities;
+using SysColab.Servicos.NotificacaoServico;
+using System;
+using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 
+
 namespace SysColab.UI
 {
-    /// <summary>
-    /// Interação lógica para UCPrestadores.xam
-    /// </summary>
+    //FAZER: Implementar o ObservableColletion
     public partial class UCPrestadores : UserControl
     {
-        PrestadorRepositorio prestadores = new PrestadorRepositorio();
 
-        private static UCPrestadores _intancia;
-        public static UCPrestadores Instancia => ObterInstancia();
-
-        static UCPrestadores ObterInstancia()
-        {
-            if (_intancia == null) _intancia = new UCPrestadores();
-            return _intancia;
-        }
+        public string ValorBadged { get; set; } = "3";
+        public ObservableCollection<Prestador> Prestadores { get; set; }
 
         public UCPrestadores()
         {
             InitializeComponent();
+            //NotificarQuantidadesDeFaturasVencidas();
             CarregarListaPrestadores();
         }
         void CarregarListaPrestadores()
         {
+            PrestadorDAO prestadores = new PrestadorDAO();
             listaPrestadores.ItemsSource = prestadores.ObterTodosPrestadores();
         }
 
-        private void CarregarPrestador(object sender, RoutedEventArgs e)
+        private void CarregarListaDeServicosPrestados(object sender, RoutedEventArgs e)
         {
-            gradePrestadores.Children.Clear();
-            var tagBotao = (Button)sender;
-            UCFaturasPrestador.Instancia.NomePrestador.Text = tagBotao.Tag.ToString();
+            int idPrestador = Convert.ToInt32(((Button)sender).Tag);
 
-            gradePrestadores.Children.Add(UCFaturasPrestador.Instancia);
+            MainWindow mw = (MainWindow)Application.Current.MainWindow;
+
+            mw.GridConteudo.Children.Clear();
+            mw.GridConteudo.Children.Add(new UCServicosPrestados(idPrestador));
+
         }
-
     }
 }

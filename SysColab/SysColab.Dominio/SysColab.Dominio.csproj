@@ -36,6 +36,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Compartilhados\ValueObjects\Data.cs" />
     <Compile Include="PRESTADORES\Entities\Prestador.cs" />
     <Compile Include="PRESTADORES\Entities\ServicoPrestado.cs" />
     <Compile Include="PRESTADORES\Enums\EStatusFatura.cs" />

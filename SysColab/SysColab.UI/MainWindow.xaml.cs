@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MaterialDesignThemes.Wpf;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -32,7 +33,7 @@ namespace SysColab.UI
             else WindowState = WindowState.Normal;
         }
 
-        private void AbrirPages(object sender, EventArgs e)
+        private async void AbrirPages(object sender, EventArgs e)
         {
             Button botao = (Button)sender;
             if (GridConteudo != null) GridConteudo.Children.Clear();
@@ -52,6 +53,7 @@ namespace SysColab.UI
                 default:
                     break;
             }
+
         }
     }
 }

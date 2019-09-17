@@ -84,7 +84,7 @@
     <Compile Include="UCServicosPrestados.xaml.cs">
       <DependentUpon>UCServicosPrestados.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UCPrestadores.xaml.cs">
+    <Compile Include="Prestadores\UCPrestadores.xaml.cs">
       <DependentUpon>UCPrestadores.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
@@ -107,7 +107,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UCPrestadores.xaml">
+    <Page Include="Prestadores\UCPrestadores.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

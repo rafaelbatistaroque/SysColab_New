@@ -37,7 +37,6 @@
                     </Button>
                 </StackPanel>
 
-
                 <ItemsControl x:Name="listaFaturas" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
 
                     <ItemsControl.ItemTemplate>

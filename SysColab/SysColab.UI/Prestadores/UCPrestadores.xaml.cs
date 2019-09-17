@@ -1,4 +1,5 @@
-﻿using SysColab.DAO.PRESTADORES.PrestadorDAO;
+﻿using MaterialDesignThemes.Wpf;
+using SysColab.DAO.PRESTADORES.PrestadorDAO;
 using SysColab.Dominio.PRESTADORES.Entities;
 using SysColab.Servicos.NotificacaoServico;
 using System;
@@ -12,20 +13,18 @@ namespace SysColab.UI
     //FAZER: Implementar o ObservableColletion
     public partial class UCPrestadores : UserControl
     {
-
-        public string ValorBadged { get; set; } = "3";
         public ObservableCollection<Prestador> Prestadores { get; set; }
+        PrestadorDAO prestadores = new PrestadorDAO();
 
         public UCPrestadores()
         {
             InitializeComponent();
-            //NotificarQuantidadesDeFaturasVencidas();
             CarregarListaPrestadores();
         }
         void CarregarListaPrestadores()
         {
-            PrestadorDAO prestadores = new PrestadorDAO();
-            listaPrestadores.ItemsSource = prestadores.ObterTodosPrestadores();
+            Prestadores = prestadores.ObterTodosPrestadores();
+            listaPrestadores.ItemsSource = Prestadores;
         }
 
         private void CarregarListaDeServicosPrestados(object sender, RoutedEventArgs e)

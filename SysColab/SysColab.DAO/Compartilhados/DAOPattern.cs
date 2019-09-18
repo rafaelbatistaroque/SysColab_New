@@ -2,7 +2,7 @@
 using System.Data;
 using System.Data.Common;
 
-namespace SysColab.DAO.ConexaoDAO
+namespace SysColab.DAO.Compartilhados
 {
     public class DAOConexao
     {

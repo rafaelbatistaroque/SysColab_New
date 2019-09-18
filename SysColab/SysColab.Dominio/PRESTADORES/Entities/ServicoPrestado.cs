@@ -7,8 +7,8 @@ namespace SysColab.Dominio.PRESTADORES.Entities
     public class ServicoPrestado
     {
 
-        public int IdPrestador { get; }
-        public int IdFatura { get; }
+        public string IdPrestador { get; }
+        public string IdFatura { get; }
         public Data DataChegada { get;}
         public Data DataVencimento { get;}
         public string MesReferencia { get;}
@@ -17,10 +17,11 @@ namespace SysColab.Dominio.PRESTADORES.Entities
         public string InfoAdicionaisFatura { get; }
         public bool FaturaAtrasa => VerificarSeFaturaEstaAtrasada();
 
-        public ServicoPrestado(int idPrestador, Data dataChegada, Data dataVencimento, string mesReferencia,
+        public ServicoPrestado(string idPrestador, Data dataChegada, Data dataVencimento, string mesReferencia,
             string valorFatura, string status, string infoAdicionais)
         {
             IdPrestador = idPrestador;
+            IdFatura = Guid.NewGuid().ToString().Replace("-", "").Substring(0, 10).ToUpper();
             DataChegada = dataChegada;
             DataVencimento = dataVencimento;
             MesReferencia = mesReferencia;
@@ -28,7 +29,7 @@ namespace SysColab.Dominio.PRESTADORES.Entities
             Status = ValidarStatusDeFatura(status);
             InfoAdicionaisFatura = infoAdicionais;
         }
-        public ServicoPrestado(int idFatura, int idPrestador, Data dataChegada, Data dataVencimento, string mesReferencia,
+        public ServicoPrestado(string idFatura, string idPrestador, Data dataChegada, Data dataVencimento, string mesReferencia,
             string valorFatura, string status, string infoAdicionais) : this(idPrestador, dataChegada, dataVencimento, mesReferencia, valorFatura, status, infoAdicionais)
         {
             IdFatura = idFatura;

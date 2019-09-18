@@ -1,26 +1,16 @@
 ﻿using MySql.Data.MySqlClient;
-using SysColab.DAO.ConexaoDAO;
+using SysColab.DAO.Compartilhados;
 using SysColab.DAO.PRESTADORES.PrestadorDAO.Interfaces;
 using SysColab.Dominio.PRESTADORES.Entities;
+using SysColab.Servicos.NotificacaoServico;
+using SysColab.Servicos.NotificacaoServico.Enums;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Data;
-using System.Data.Common;
 
 namespace SysColab.DAO.PRESTADORES.PrestadorDAO
 {
     public class PrestadorDAO : IPrestadorDAO
     {
-        DbCommand SqlComando(string sqlComando)
-        {
-            DbConnection conexao = DAOConexao.ObterConexao();
-            DbCommand comando = DAOConexao.ObterComando(conexao);
-            comando.CommandType = CommandType.Text;
-            comando.CommandText = sqlComando;
-
-            return comando;
-        }
         public void AtualizarPrestador(Prestador prestador)
         {
             throw new NotImplementedException();
@@ -28,14 +18,28 @@ namespace SysColab.DAO.PRESTADORES.PrestadorDAO
 
         public void CriarPrestador(Prestador prestador)
         {
-            throw new NotImplementedException();
+            var comando = Comando.LerComando("INSERT INTO tblprestadores_servicos" +
+                                            "(id_prestadores_servico, servico, infoAdicionais)" +
+                                            "VALUES(@idGuid, @servico, @infoAdicionais)");
+
+            comando.Parameters.Add(new MySqlParameter("@idGuid", prestador.IdPrestador));
+            comando.Parameters.Add(new MySqlParameter("@servico", prestador.Servico));
+            comando.Parameters.Add(new MySqlParameter("@infoAdicionais", prestador.InfoAdicionaisPrestador));
+            comando.ExecuteNonQuery();
+
+            DAOConexao.FecharConexao();
+
+            Notificacao.Notificar("Prestador adicionado", ETipoNotificacao.Sucesso);
         }
 
-        public void DeletarPrestador(int id)
+        public void DeletarPrestador(string id)
         {
-            DbCommand comando = SqlComando("DELETE FROM tblprestadores_servicos WHERE id_prestadores_servico = @id");
+            var comando = Comando.LerComando("DELETE FROM tblprestadores_servicos WHERE id_prestadores_servico = @id");
             comando.Parameters.Add(new MySqlParameter("@id", id));
             comando.ExecuteNonQuery();
+
+            DAOConexao.FecharConexao();
+            Notificacao.Notificar("Prestador excluído", ETipoNotificacao.Sucesso);
         }
 
         public Prestador ObterPrestador(int id)
@@ -45,22 +49,22 @@ namespace SysColab.DAO.PRESTADORES.PrestadorDAO
 
         public ObservableCollection<Prestador> ObterTodosPrestadores()
         {
-            DbCommand comando = SqlComando("SELECT * FROM tblprestadores_servicos");
-            DbDataReader reader = DAOConexao.LerDadosRecebidosDoBanco(comando);
+            var comando = Comando.LerComando("SELECT * FROM tblprestadores_servicos");
+            var reader = DAOConexao.LerDadosRecebidosDoBanco(comando);
 
-            ObservableCollection<Prestador> prestadores = new ObservableCollection<Prestador>();
+            var prestadores = new ObservableCollection<Prestador>();
             while (reader.Read())
             {
-                var prestador = new Prestador(
-                    idPrestador: Convert.ToInt32(reader["id_prestadores_servico"]),
-                    servico:  reader["servico"].ToString(),
-                    infoAdicionaisPrestador: reader["infoAdicionais"].ToString()
-                );
-                prestadores.Add(prestador);
+                prestadores.Add(
+                    new Prestador(
+                        idPrestador: reader["id_prestadores_servico"].ToString(),
+                        servico: reader["servico"].ToString(),
+                        infoAdicionaisPrestador: reader["infoAdicionais"].ToString()
+                ));
             }
             reader.Close();
-            //FAZER: Implementar fechamento de conexao no try da interface
             DAOConexao.FecharConexao();
+
             return prestadores;
         }
     }

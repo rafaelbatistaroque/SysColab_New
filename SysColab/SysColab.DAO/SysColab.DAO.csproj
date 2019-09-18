@@ -52,9 +52,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConexaoDAO\DAOPattern.cs" />
+    <Compile Include="Compartilhados\DAOPattern.cs" />
     <Compile Include="PRESTADORES\PrestadorDAO\Interfaces\IPrestadorDAO.cs" />
     <Compile Include="PRESTADORES\PrestadorDAO\Interfaces\IServicoPrestadoDAO.cs" />
+    <Compile Include="Compartilhados\Comando.cs" />
     <Compile Include="PRESTADORES\PrestadorDAO\ServicoPrestadoDAO.cs" />
     <Compile Include="PRESTADORES\PrestadorDAO\PrestadorDAO.cs" />
     <Compile Include="RH\FuncionarioDAO\FuncionarioDAO.cs" />
@@ -91,6 +92,10 @@
     <ProjectReference Include="..\SysColab.Dominio\SysColab.Dominio.csproj">
       <Project>{7d4f411b-87df-4e3a-8221-4f8906849f5a}</Project>
       <Name>SysColab.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SysColab.Servicos\SysColab.Servicos.csproj">
+      <Project>{0ed1c054-fe87-4ce3-8690-de9f8fb19ac0}</Project>
+      <Name>SysColab.Servicos</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

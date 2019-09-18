@@ -9,6 +9,6 @@ namespace SysColab.DAO.PRESTADORES.PrestadorDAO.Interfaces
         Prestador ObterPrestador(int id);
         void CriarPrestador(Prestador prestador);
         void AtualizarPrestador(Prestador prestador);
-        void DeletarPrestador(int id);
+        void DeletarPrestador(string id);
     }
 }

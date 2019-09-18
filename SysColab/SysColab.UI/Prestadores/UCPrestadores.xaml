@@ -10,8 +10,8 @@
 
 
     <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect FadeIn, Duration=0:0:0.7}">
-        
-        <materialDesign:DialogHost>
+        <!--Formulário de Nova insersão-->
+        <materialDesign:DialogHost CloseOnClickAway="True">
             <materialDesign:DialogHost.DialogContent>
                 <Grid Width="300" Height="300" Margin="15">
                     <Grid.RowDefinitions>
@@ -19,26 +19,25 @@
                         <RowDefinition Height="20"/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    
+
                     <StackPanel Grid.Row="0">
                         <TextBox
                             x:Name="txtPrestador"
-                            Text="{Binding Servico}"
                             materialDesign:HintAssist.Hint="Prestador/Serviço"
                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                         <TextBox
-                            x:Name="InfoAdicionais"
+                            x:Name="txtInfoAdicionais"
                             TextWrapping="Wrap"
-                            Text="{Binding InfoAdicionaisPrestador}"
                             materialDesign:HintAssist.Hint="Informações adicionais"
                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                     </StackPanel>
                     <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom">
-                        <Button Content="Cancelar"
+                        <Button Content="CANCELAR"
                                 Style="{StaticResource MaterialDesignFlatButton}"
                                 Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"/>
-                        <Button Content="Salvar"
+                        <Button Content="SALVAR"
                                 Style="{StaticResource MaterialDesignFlatButton}"
+                                Click="SalvarNovoPrestador"
                                 Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"/>
                     </StackPanel>
                 </Grid>
@@ -57,78 +56,115 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                    <!--Lista-->
-                    <ItemsControl
-                        x:Name="listaPrestadores"
-                        ScrollViewer.VerticalScrollBarVisibility="Visible"
-                        Grid.Row="0"
-                        Grid.Column="0"
-                        Grid.ColumnSpan="3">
+                    <ScrollViewer 
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="3"
+                            VerticalScrollBarVisibility="Auto"
+                            HorizontalAlignment="Stretch">
 
-                        <ItemsControl.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <WrapPanel/>
-                            </ItemsPanelTemplate>
-                        </ItemsControl.ItemsPanel>
+                        <!--Lista-->
+                        <ItemsControl x:Name="listaPrestadores">
 
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
 
-                                <DataTemplate.Resources>
-                                    <Style TargetType="materialDesign:Card">
-                                        <Setter Property="Margin" Value="10"/>
-                                        <Setter Property="Padding" Value="10"/>
-                                    </Style>
-                                </DataTemplate.Resources>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <DataTemplate.Resources>
+                                        <Style TargetType="materialDesign:Card">
+                                            <Setter Property="Margin" Value="10"/>
+                                            <Setter Property="Padding" Value="10"/>
+                                        </Style>
+                                    </DataTemplate.Resources>
 
-                                <StackPanel Orientation="Horizontal">
-                                    <Grid>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="*"/>
-                                        </Grid.ColumnDefinitions>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="*"/>
+                                            </Grid.RowDefinitions>
 
-                                        <materialDesign:Badged
-                                            Badge="{Binding FaturaAtrasada}"
-                                            BadgeForeground="White"
-                                            BadgeBackground="Tomato"
-                                            BadgePlacementMode="TopRight">
                                             <materialDesign:Card
-                                                Width="220"
-                                                Height="60"
-                                                Background="White"
-                                                Grid.Column="0">
-                                                <TextBlock
-                                                    Text="{Binding Servico}"
-                                                    Style="{StaticResource MaterialDesignSubheadingTextBlock}"/>
+                                                Grid.ColumnSpan="2"
+                                                Grid.RowSpan="2"
+                                                Width="240"
+                                                Height="80"
+                                                Background="White">
+                                                <Separator
+                                                    Width="180"
+                                                    VerticalAlignment="Center"
+                                                    HorizontalAlignment="Left"
+                                                    Grid.ColumnSpan="2"
+                                                    Background="LightGray"/>
                                             </materialDesign:Card>
-                                        </materialDesign:Badged>
 
-                                        <Button
-                                            Tag="{Binding IdPrestador}"
-                                            Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
-                                            VerticalAlignment="Center"
-                                            Click="CarregarListaDeServicosPrestados"
-                                            Grid.Column="1"
-                                            Margin="-70 0 0 0">
-                                            <materialDesign:PackIcon Kind="ArrowForward"/>
-                                        </Button>
-                                    </Grid>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
+                                            <TextBlock
+                                                Grid.Column="0"
+                                                Grid.Row="0"
+                                                Margin="20 20 20 0"
+                                                Text="{Binding Servico}"
+                                                Style="{StaticResource MaterialDesignSubheadingTextBlock}"/>
+                                            
+                                            <Grid
+                                                Grid.ColumnSpan="2"
+                                                Grid.Row="1"
+                                                HorizontalAlignment="Stretch"
+                                                VerticalAlignment="Bottom"
+                                                Margin="20 10">
+                                                <Button
+                                                    Tag="{Binding IdPrestador}"
+                                                    Style="{StaticResource MaterialDesignToolButton}"
+                                                    VerticalAlignment="Center"
+                                                    HorizontalAlignment="Right"
+                                                    Click="CarregarListaDeServicosPrestados">
+                                                    <materialDesign:PackIcon Kind="ArrowForward"/>
+                                                </Button>
+
+                                                <StackPanel
+                                                    Orientation="Horizontal"
+                                                    HorizontalAlignment="Left">
+                                                    <Button
+                                                        Style="{StaticResource MaterialDesignToolButton}"
+                                                        Width="30"
+                                                        HorizontalAlignment="Left"
+                                                        materialDesign:RippleAssist.IsCentered="True">
+                                                        <materialDesign:PackIcon Kind="Edit" />
+                                                    </Button>
+                                                    <Button
+                                                        Style="{StaticResource MaterialDesignToolButton}"
+                                                        Width="30"
+                                                        HorizontalAlignment="Left"
+                                                        materialDesign:RippleAssist.IsCentered="True">
+                                                        <materialDesign:PackIcon Kind="Delete" />
+                                                    </Button>
+                                                </StackPanel>
+                                            </Grid>
+
+                                        </Grid>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+
                     <!--Botao Inferior-->
                     <Button
-                        VerticalAlignment="Center"
                         Grid.Column="1"
                         Grid.Row="1"
+                        VerticalAlignment="Center"
                         HorizontalAlignment="Center"
                         Margin="0 10"
                         Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}"
                         Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}">
-                        <materialDesign:PackIcon
-                            Kind="Add"/>
+                        <materialDesign:PackIcon Kind="Add"/>
                     </Button>
                 </Grid>
             </Grid>

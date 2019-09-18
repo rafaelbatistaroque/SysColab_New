@@ -16,11 +16,11 @@ namespace SysColab.UI
 
     public partial class UCServicosPrestados : UserControl
     {
-        public int IdPrestador { get; }
+        public string IdPrestador { get; }
         private ObservableCollection<ServicoPrestado> servicosPrestados { get; set; }
 
         ServicoPrestadoDAO faturaServicoPrestado = new ServicoPrestadoDAO();
-        public UCServicosPrestados(int idPrestador)
+        public UCServicosPrestados(string idPrestador)
         {
             this.IdPrestador = idPrestador;
             InitializeComponent();
@@ -36,7 +36,7 @@ namespace SysColab.UI
         }
         private void RemoverFatura(object sender, RoutedEventArgs e)
         {
-            int index = Convert.ToInt32(((Button)sender).Tag);
+            var index = ((Button)sender).Tag.ToString();
             var fatura = servicosPrestados.Where(x => x.IdFatura.Equals(index)).FirstOrDefault();
 
             servicosPrestados.Remove(fatura);//Remove da lista
@@ -44,7 +44,7 @@ namespace SysColab.UI
         }
         private void AlterarStatusFaturaDaPrestacaoDeServico(object sender, RoutedEventArgs e)
         {
-            int index = Convert.ToInt32(((ToggleButton)sender).Tag);
+            var index = ((ToggleButton)sender).Tag.ToString();
             var faturaLocalizada = servicosPrestados.Where(x => x.IdFatura.Equals(index)).FirstOrDefault();
 
             if (faturaLocalizada.Status.Equals(EStatusFaturaPrestadorServico.Aberta))
@@ -56,10 +56,10 @@ namespace SysColab.UI
         }
         private void CarregarPrestador(object sender, RoutedEventArgs e)
         {
-            MainWindow mw = (MainWindow)Application.Current.MainWindow;
+            MainWindow janelaPrincial = (MainWindow)Application.Current.MainWindow;
 
-            mw.GridConteudo.Children.Clear();
-            mw.GridConteudo.Children.Add(new UCPrestadores());
+            janelaPrincial.GridConteudo.Children.Clear();
+            janelaPrincial.GridConteudo.Children.Add(new UCPrestadores());
         }
 
     }

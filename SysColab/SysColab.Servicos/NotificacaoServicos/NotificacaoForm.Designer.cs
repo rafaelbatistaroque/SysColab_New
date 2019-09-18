@@ -41,7 +41,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.lblNotificacao.BackColor = System.Drawing.Color.Transparent;
             this.lblNotificacao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblNotificacao.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNotificacao.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNotificacao.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.lblNotificacao.Location = new System.Drawing.Point(12, 9);
             this.lblNotificacao.Name = "lblNotificacao";
@@ -53,7 +53,7 @@
             // timerNotificacao
             // 
             this.timerNotificacao.Enabled = true;
-            this.timerNotificacao.Interval = 4000;
+            this.timerNotificacao.Interval = 5000;
             this.timerNotificacao.Tick += new System.EventHandler(this.TimerNotificacao_Tick);
             // 
             // button1

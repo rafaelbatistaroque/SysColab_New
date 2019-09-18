@@ -1,5 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
-using SysColab.DAO.ConexaoDAO;
+using SysColab.DAO.Compartilhados;
 using SysColab.DAO.RH.FuncionarioDAO.Interfaces;
 using SysColab.Dominio.RH.Entities;
 using System;
@@ -10,21 +10,13 @@ namespace SysColab.DAO.RH.FuncionarioDAO
 {
     public class FuncionarioDAO : IFuncionarioDAO
     {
-        DbCommand SqlComando(string sqlComando)
-        {
-            DbConnection _conexao = DAOConexao.ObterConexao();
-            DbCommand comando = DAOConexao.ObterComando(_conexao);
-            comando.CommandType = CommandType.Text;
-            comando.CommandText = sqlComando;
 
-            return comando;
-        }
         public DataTable ObterTodosFuncionarios()
         {
-            DbCommand comando = SqlComando("SELECT * FROM tblFuncionarios");
-            DbDataReader reader = DAOConexao.LerDadosRecebidosDoBanco(comando);
+            var comando = Comando.LerComando("SELECT * FROM tblFuncionarios");
+            var reader = DAOConexao.LerDadosRecebidosDoBanco(comando);
 
-            DataTable dadosFuncionarios = new DataTable();
+            var dadosFuncionarios = new DataTable();
             dadosFuncionarios.Load(reader);
 
             reader.Close();
@@ -39,9 +31,9 @@ namespace SysColab.DAO.RH.FuncionarioDAO
 
         public void CriarFuncionario(Funcionario funcionario)
         {
-            DbCommand comando = SqlComando("INSERT INTO tblFuncionarios" +
-                                            "(PRIMEIRONOME, SOBRENOME, CPF, CTPS_NUMERO, CTPS_SERIE, CTPS_UF, DATANASCIMENTO, EMAIL)" +
-                                            "VALUES (@primeiroNome, @sobreNome, @cpf, @ctsNumero, @ctpsSerie, @ctpsUf, @dataNasc, @email)");
+            var comando = Comando.LerComando("INSERT INTO tblFuncionarios" +
+                                                    "(PRIMEIRONOME, SOBRENOME, CPF, CTPS_NUMERO, CTPS_SERIE, CTPS_UF, DATANASCIMENTO, EMAIL)" +
+                                                    "VALUES (@primeiroNome, @sobreNome, @cpf, @ctsNumero, @ctpsSerie, @ctpsUf, @dataNasc, @email)");
 
             comando.Parameters.Add(new MySqlParameter("@primeiroNome", funcionario.Nome.PrimeiroNome));
             comando.Parameters.Add(new MySqlParameter("@sobreNome", funcionario.Nome.SobreNome));
@@ -56,7 +48,7 @@ namespace SysColab.DAO.RH.FuncionarioDAO
 
         public void DeletarFuncionario(string cpf)
         {
-            DbCommand comando = SqlComando("DELETE FROM tblFuncionarios WHERE CPF = @cpf");
+            var comando = Comando.LerComando("DELETE FROM tblFuncionarios WHERE CPF = @cpf");
             comando.Parameters.Add(new MySqlParameter("@cpf", cpf));
             comando.ExecuteNonQuery();
         }

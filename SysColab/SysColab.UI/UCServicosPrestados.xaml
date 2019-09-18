@@ -86,13 +86,13 @@
                                             </materialDesign:ToggleButtonAssist.OnContent>
                                         </ToggleButton>
 
-                                        <Button VerticalAlignment="Center" Background="GhostWhite" Margin="10" Width="40" Height="40"
-                                                Style="{StaticResource MaterialDesignIconForegroundButton}">
-                                            <materialDesign:PackIcon Kind="Edit" Foreground="#ADADAD"/>
+                                        <Button VerticalAlignment="Center" Margin="10" Width="40" Height="40"
+                                                Style="{StaticResource MaterialDesignToolButton}">
+                                            <materialDesign:PackIcon Kind="Edit"/>
                                         </Button>
-                                        <Button Tag="{Binding IdFatura}" Background="GhostWhite" Margin="10" Width="40" Height="40"
-                                                Style="{StaticResource MaterialDesignIconForegroundButton}" Click="RemoverFatura">
-                                            <materialDesign:PackIcon Kind="Delete" Foreground="#ADADAD"/>
+                                        <Button Tag="{Binding IdFatura}" Margin="10" Width="40" Height="40"
+                                                Style="{StaticResource MaterialDesignToolButton}" Click="RemoverFatura">
+                                            <materialDesign:PackIcon Kind="Delete"/>
                                         </Button>
 
                                     </StackPanel>
